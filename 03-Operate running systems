@@ -1,5 +1,13 @@
         1-Boot, reboot, and shut down a system normally
         2-Boot systems into different targets manually
+          SysVinit:
+            Use the telinit command. E.g., to switch to runlevel 3: telinit 3
+          Systemd:
+            Use systemctl isolate target. E.g., to switch to the graphical target: systemctl isolate graphical.target
+          permannent changes:
+            SysVinit: Modify /etc/inittab, identify the line starting with id:, e.g., id:3:initdefault: where 3 is the runlevel.
+            Systemd: Uses ‘targets’ instead of runlevels. For instance: systemctl set-default multi-user.target
+
         3-Interrupt the boot process in order to gain access to a system
         4-Identify CPU/memory intensive processes and kill processes
         5-Adjust process scheduling
