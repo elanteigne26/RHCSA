@@ -22,7 +22,7 @@
         3-Interrupt the boot process in order to gain access to a system
         4-Identify CPU/memory intensive processes and kill processes
           To find a process PID
-          # ps
+          # ps -e
           Signal Name	Single Value	Effect
           SIGHUP	     1	        Hangup, reload a process
           SIGINT	     2	        Interrupt from keyboard
@@ -38,4 +38,7 @@
         7-Locate and interpret system log files and journals
         8-Preserve system journals
         9-Start, stop, and check the status of network services
+          systemctl start serviceName: Start a service.
+          systemctl enable serviceName: Enable a service at boot.
+
         10-Securely transfer files between systems
