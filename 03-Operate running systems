@@ -1,4 +1,15 @@
         1-Boot, reboot, and shut down a system normally
+          Shutdown:
+            SysVinit: shutdown -h now
+            Systemd: systemctl poweroff
+          Reboot:
+            SysVinit: shutdown -r now
+            Systemd: systemctl reboot
+          Single User Mode:
+            Helpful for maintenance tasks or recovering from errors.
+            SysVinit: telinit 1
+            Systemd: systemctl isolate rescue.target
+
         2-Boot systems into different targets manually
           SysVinit:
             Use the telinit command. E.g., to switch to runlevel 3: telinit 3
