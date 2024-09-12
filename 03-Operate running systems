@@ -21,6 +21,18 @@
 
         3-Interrupt the boot process in order to gain access to a system
         4-Identify CPU/memory intensive processes and kill processes
+          To find a process PID
+          # ps
+          Signal Name	Single Value	Effect
+          SIGHUP	     1	        Hangup, reload a process
+          SIGINT	     2	        Interrupt from keyboard
+          SIGKILL	     9	        Kill a process
+          SIGTERM	    15	        Terminate a process gracefully
+          SIGSTOP	17, 19, 23	Stop a process
+          To kill a process
+          $ kill -15 <pid> (if this does not work: $ kill -9 <pid>)
+
+                
         5-Adjust process scheduling
         6-Manage tuning profiles
         7-Locate and interpret system log files and journals
