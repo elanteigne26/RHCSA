@@ -1,10 +1,10 @@
         1-Boot, reboot, and shut down a system normally
           Shutdown:
-            SysVinit: shutdown -h now
-            Systemd: systemctl poweroff
+            SysVinit: $ shutdown -h now, $ init 0
+            Systemd: $ systemctl poweroff
           Reboot:
-            SysVinit: shutdown -r now
-            Systemd: systemctl reboot
+            SysVinit: $ shutdown -r now, $ init 6 
+            Systemd: $ systemctl reboot
           Single User Mode:
             Helpful for maintenance tasks or recovering from errors.
             SysVinit: telinit 1
@@ -36,6 +36,11 @@
         5-Adjust process scheduling
         6-Manage tuning profiles
         7-Locate and interpret system log files and journals
+          dmesg: Displays kernel ring buffer messages.
+            Example: dmesg | less
+          journalctl: Tool to query and display messages from the systemd journal.
+            Example: journalctl -b This command shows all logs from the current boot.
+
         8-Preserve system journals
         9-Start, stop, and check the status of network services
           systemctl start serviceName: Start a service.
