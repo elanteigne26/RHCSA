@@ -57,7 +57,8 @@
 
         8-Preserve system journals
         9-Start, stop, and check the status of network services
-          systemctl start serviceName: Start a service.
-          systemctl enable serviceName: Enable a service at boot.
+          systemctl start <serviceName>:  Start a service.
+          systemctl stop <serviceName>:   Stop a service.
+          systemctl enable <serviceName>: Enable a service at boot.
 
         10-Securely transfer files between systems
