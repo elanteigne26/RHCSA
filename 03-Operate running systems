@@ -12,7 +12,7 @@
 
         2-Boot systems into different targets manually
           To know your current runlevel:
-            $ runlevel      
+            $ runlevel,   $ who -r      
           RunLevel Mode	                        Action
           0        Halt	                        Shuts down system
           1        Single-User	                No network interfaces, start daemons, or allow non-root logins
