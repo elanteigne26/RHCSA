@@ -18,7 +18,7 @@
             # systemctl get-default
           RunLevel Mode	                        Action                                Systemd Equivalent                                
           0        Halt	                        Shuts down system                     poweroff.target   
-          1        Single-User	                No net/interf, no daemons, only root  rescue.target
+          1 or S   Single-User	                No net/interf, no daemons, only root  rescue.target
           2        Multi-User	                No net/interf, no daemons.                
           3        Multi-User + Networking	Starts the system normally.           multi-user.target
           4        Undefined	                Not used/User-definable               
