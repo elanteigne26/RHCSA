@@ -12,15 +12,19 @@
 
         2-Boot systems into different targets manually
           To know your current runlevel:
-            $ runlevel,   $ who -r      
-          RunLevel Mode	                        Action
-          0        Halt	                        Shuts down system
-          1        Single-User	                No network interfaces, start daemons, or allow non-root logins
-          2        Multi-User	                No network interfaces or start daemons.
-          3        Multi-User + Networking	Starts the system normally.
-          4        Undefined	                Not used/User-definable
-          5        X11	                        As runlevel 3 + display manager(X)
-          6        Reboot	                Reboots the system
+          SysVinit:      
+            $ runlevel,   $ who -r
+          Systemd:
+            # systemctl get-default
+          RunLevel Mode	                        Action                                Systemd Equivalent                                
+          0        Halt	                        Shuts down system                     poweroff.target   
+          1        Single-User	                No net/interf, no daemons, only root  rescue.target
+          2        Multi-User	                No net/interf, no daemons.                
+          3        Multi-User + Networking	Starts the system normally.           multi-user.target
+          4        Undefined	                Not used/User-definable               
+          5        X11	                        As runlevel 3 + display manager(X)    graphical.target 
+          6        Reboot	                Reboots the system                    reboot.target    
+                   Emergency                                                          emergency.target
           SysVinit:
             Use the telinit command. E.g., to switch to runlevel 3: telinit 3
           Systemd:
