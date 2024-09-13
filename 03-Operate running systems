@@ -54,9 +54,16 @@
         8-Preserve system journals
         9-Start, stop, and check the status of network services
           To get a list of all the services that will be executed on boot:
-            # chkconfig --list 
-          systemctl start <serviceName>:  Start a service.
-          systemctl stop <serviceName>:   Stop a service.
-          systemctl enable <serviceName>: Enable a service at boot.
+            # chkconfig --list
+          To list all the available service units in systemd:
+            # systemctl list-units
+          To start a service at runtime:      
+            # systemctl start <serviceName>:  Start a service.
+          To stop a service at runtime:
+            # systemctl stop <serviceName>:   Stop a service.
+          For a permanent change, i.e. running at next boot:
+            # systemctl enable <serviceName>: Enable a service at boot.
 
         10-Securely transfer files between systems
+        11-Extras-supplement
+           Upstart, reload configuration files: # initctl relaod
