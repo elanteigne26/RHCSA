@@ -1,19 +1,15 @@
         1-Boot, reboot, and shut down a system normally
           Shutdown:
-            SysVinit: $ shutdown -h now, $ init 0
-            Systemd: $ systemctl poweroff
+            SysVinit: # shutdown -h now, $ init 0
+            Systemd: # systemctl poweroff
           Reboot:
-            SysVinit: $ shutdown -r now, $ init 6 
-            Systemd: $ systemctl reboot
-          Single User Mode:
-            Helpful for maintenance tasks or recovering from errors.
-            SysVinit: telinit 1
-            Systemd: systemctl isolate rescue.target
+            SysVinit: # shutdown -r now, $ init 6 
+            Systemd: # systemctl reboot
 
         2-Boot systems into different targets manually
           To know your current runlevel:
           SysVinit:      
-            $ runlevel,   $ who -r
+            # runlevel,   $ who -r
           Systemd:
             # systemctl get-default
           RunLevel Mode	                        Action                                Systemd Equivalent                                
@@ -26,12 +22,12 @@
           6        Reboot	                Reboots the system                    reboot.target    
                    Emergency                                                          emergency.target
           SysVinit:
-            Use the telinit command. E.g., to switch to runlevel 3: telinit 3
+            Use the telinit command. E.g., to switch to runlevel 3: # telinit 3
           Systemd:
-            Use systemctl isolate target. E.g., to switch to the graphical target: systemctl isolate graphical.target
+            Use systemctl isolate target. E.g., to switch to the graphical target: # systemctl isolate graphical.target
           permannent changes: (remember for the exam, your settings must survive a reboot)
             SysVinit: Modify /etc/inittab, identify the line starting with id:, e.g., id:3:initdefault: where 3 is the runlevel.
-            Systemd: Uses ‘targets’ instead of runlevels. For instance: systemctl set-default multi-user.target
+            Systemd: Uses ‘targets’ instead of runlevels. For instance: # systemctl set-default multi-user.target
 
         3-Interrupt the boot process in order to gain access to a system
         4-Identify CPU/memory intensive processes and kill processes
@@ -44,19 +40,21 @@
           SIGTERM	    15	        Terminate a process gracefully
           SIGSTOP	17, 19, 23	Stop a process
           To kill a process
-          $ kill -15 <pid> (if this does not work: $ kill -9 <pid>)
+          # kill -15 <pid> (if this does not work: $ kill -9 <pid>)
 
                 
         5-Adjust process scheduling
         6-Manage tuning profiles
         7-Locate and interpret system log files and journals
           dmesg: Displays kernel ring buffer messages.
-            Example: dmesg | less
+            Example: # dmesg | less
           journalctl: Tool to query and display messages from the systemd journal.
-            Example: journalctl -b This command shows all logs from the current boot.
+            Example: # journalctl -b This command shows all logs from the current boot.
 
         8-Preserve system journals
         9-Start, stop, and check the status of network services
+          To get a list of all the services that will be executed on boot:
+            # chkconfig --list 
           systemctl start <serviceName>:  Start a service.
           systemctl stop <serviceName>:   Stop a service.
           systemctl enable <serviceName>: Enable a service at boot.
